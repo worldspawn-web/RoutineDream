@@ -21,8 +21,11 @@ public class InteractableObject : MonoBehaviour
         if (!canInteract) return;
         
         Debug.Log($"[{objectName}] {interactionText}");
-        onInteract?.Invoke();
         
+        // Показываем текст на экране
+        UIThoughtDisplay.ShowThought(interactionText);
+        
+        onInteract?.Invoke();
     }
 
     void OnDrawGizmos()
