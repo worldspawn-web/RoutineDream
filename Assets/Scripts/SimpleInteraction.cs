@@ -9,6 +9,7 @@ public class SimpleInteraction : MonoBehaviour
     
     private Camera playerCamera;
     private InteractableObject currentInteractable;
+    private InteractableObject lastInteractable;
 
     void Start()
     {
@@ -36,6 +37,7 @@ public class SimpleInteraction : MonoBehaviour
     void CheckForInteractable()
     {
         RaycastHit hit;
+        InteractableObject newInteractable = null;
         
         if (Physics.Raycast(playerCamera.transform.position, 
                            playerCamera.transform.forward, 
@@ -46,12 +48,26 @@ public class SimpleInteraction : MonoBehaviour
             
             if (interactable != null && interactable.canInteract)
             {
-                currentInteractable = interactable;
-                return;
+                newInteractable = interactable;
             }
         }
         
-        currentInteractable = null;
+        if (newInteractable != lastInteractable)
+        {
+            if (lastInteractable != null)
+            {
+                lastInteractable.SetHighlight(false);
+            }
+            
+            if (newInteractable != null)
+            {
+                newInteractable.SetHighlight(true);
+            }
+            
+            lastInteractable = newInteractable;
+        }
+        
+        currentInteractable = newInteractable;
     }
 
     void OnDrawGizmos()
@@ -64,4 +80,5 @@ public class SimpleInteraction : MonoBehaviour
         }
     }
 }
+
 

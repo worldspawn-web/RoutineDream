@@ -9,23 +9,38 @@ public class InteractableObject : MonoBehaviour
     public string interactionText = "Это интересный объект для размышлений...";
     
     public bool canInteract = true;
+    public bool interactOnce = false;
     public float interactionDistance = 3f;
     
     [Header("События")]
     public UnityEvent onInteract;
     
-    private bool isPlayerNearby = false;
+    private bool hasInteracted = false;
 
     public void Interact()
     {
         if (!canInteract) return;
+        if (interactOnce && hasInteracted) return;
         
         Debug.Log($"[{objectName}] {interactionText}");
         
-        // Показываем текст на экране
         UIThoughtDisplay.ShowThought(interactionText);
         
         onInteract?.Invoke();
+        
+        if (interactOnce)
+        {
+            hasInteracted = true;
+        }
+    }
+    
+    public void SetHighlight(bool enabled)
+    {
+        Outline outline = GetComponent<Outline>();
+        if (outline != null)
+        {
+            outline.enabled = enabled;
+        }
     }
 
     void OnDrawGizmos()
