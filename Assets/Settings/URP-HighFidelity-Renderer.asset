@@ -1,5 +1,25 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7611992971779342688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 240c11bd05a703b41b8fef90877332fd, type: 3}
+  m_Name: PS1PostProcessFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    pixelationSize: 300
+    ditherStrength: 0.05
+    enableColorBanding: 1
+    colorSteps: 32
+    shader: {fileID: 4800000, guid: d2a7458cf8a849d4ea6a7afe83e13da0, type: 3}
+  material: {fileID: 0}
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +73,8 @@ MonoBehaviour:
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  m_RendererFeatureMap: adc0de57c6d2eee5
+  - {fileID: 7653058921649932320}
+  m_RendererFeatureMap: adc0de57c6d2eee5200814a68a20356a
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -96,3 +117,21 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &7653058921649932320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f119158a9382934fa234fa148a36b25, type: 3}
+  m_Name: PS1PostProcessFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    pixelationSize: 150
+    ditherStrength: 0.01
+    enableColorBanding: 1
+    colorSteps: 32
