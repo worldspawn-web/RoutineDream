@@ -68,6 +68,8 @@ public class SimpleInteraction : MonoBehaviour
         }
         
         currentInteractable = newInteractable;
+        
+        Crosshair.SetRotating(currentInteractable != null);
     }
 
     void OnDrawGizmos()
