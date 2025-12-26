@@ -15,6 +15,7 @@ public class TimeOfDay : MonoBehaviour
     public class TimePreset
     {
         public string name;
+        public Material skyboxMaterial;
         public Color skyColor;
         public Color equatorColor;
         public Color fogColor;
@@ -114,6 +115,11 @@ public class TimeOfDay : MonoBehaviour
 
     void ApplySettings()
     {
+        if (targetPreset != null && targetPreset.skyboxMaterial != null)
+        {
+            RenderSettings.skybox = targetPreset.skyboxMaterial;
+        }
+        
         RenderSettings.fogColor = currentFogColor;
         RenderSettings.fogDensity = currentFogDensity;
         RenderSettings.ambientSkyColor = currentSkyColor;
