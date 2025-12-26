@@ -46,7 +46,7 @@ public class SimpleInteraction : MonoBehaviour
         {
             InteractableObject interactable = hit.collider.GetComponent<InteractableObject>();
             
-            if (interactable != null && interactable.canInteract)
+            if (interactable != null && interactable.CanInteract())
             {
                 newInteractable = interactable;
             }

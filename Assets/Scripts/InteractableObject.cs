@@ -19,8 +19,7 @@ public class InteractableObject : MonoBehaviour
 
     public void Interact()
     {
-        if (!canInteract) return;
-        if (interactOnce && hasInteracted) return;
+        if (!CanInteract()) return;
         
         Debug.Log($"[{objectName}] {interactionText}");
         
@@ -32,6 +31,13 @@ public class InteractableObject : MonoBehaviour
         {
             hasInteracted = true;
         }
+    }
+    
+    public bool CanInteract()
+    {
+        if (!canInteract) return false;
+        if (interactOnce && hasInteracted) return false;
+        return true;
     }
     
     public void SetHighlight(bool enabled)
