@@ -60,6 +60,9 @@ public class DialogueSystem : MonoBehaviour
         
         InteractionBlocker.BlockInteractions(true);
         
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        
         PlayCurrentNode();
     }
 
@@ -201,6 +204,9 @@ public class DialogueSystem : MonoBehaviour
         isPlaying = false;
         choicePanel.SetActive(false);
         InteractionBlocker.BlockInteractions(false);
+        
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         
         Debug.Log("Диалог завершён");
     }

@@ -10,6 +10,7 @@ public class InteractableObject : MonoBehaviour
     
     public bool canInteract = true;
     public bool interactOnce = false;
+    public bool showThoughtText = true;
     public float interactionDistance = 3f;
     
     [Header("Звук взаимодействия")]
@@ -41,7 +42,10 @@ public class InteractableObject : MonoBehaviour
         
         Debug.Log($"[{objectName}] {interactionText}");
         
-        UIThoughtDisplay.ShowThought(interactionText);
+        if (showThoughtText)
+        {
+            UIThoughtDisplay.ShowThought(interactionText);
+        }
         
         PlayInteractionSound();
         

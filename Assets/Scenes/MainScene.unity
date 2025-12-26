@@ -1663,6 +1663,7 @@ MonoBehaviour:
     \u044D\u0442\u043E \u043F\u0438\u0441\u043A \u043C\u043E\u0434\u044B."
   canInteract: 1
   interactOnce: 1
+  showThoughtText: 1
   interactionDistance: 1
   interactionSound: {fileID: 0}
   playSoundGlobally: 0
@@ -2599,6 +2600,7 @@ MonoBehaviour:
     \u0433\u043E\u0440\u0435\u043B \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435\u043C."
   canInteract: 1
   interactOnce: 1
+  showThoughtText: 1
   interactionDistance: 1
   interactionSound: {fileID: 0}
   playSoundGlobally: 0
@@ -7149,6 +7151,7 @@ MonoBehaviour:
     \u043C\u043D\u0435."
   canInteract: 1
   interactOnce: 1
+  showThoughtText: 1
   interactionDistance: 1
   interactionSound: {fileID: 0}
   playSoundGlobally: 0
@@ -10688,6 +10691,7 @@ MonoBehaviour:
     \u0440\u0443\u043A\u0438 \u0434\u043E \u0435\u0433\u043E \u043F\u043E\u0447\u0438\u043D\u043A\u0438."
   canInteract: 1
   interactOnce: 1
+  showThoughtText: 1
   interactionDistance: 1
   interactionSound: {fileID: 8300000, guid: d1a6e2cc722a82e40bd17a259925b2f7, type: 3}
   playSoundGlobally: 0
@@ -17655,9 +17659,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: testphone
-  interactionText: '-'
+  interactionText: 
   canInteract: 1
   interactOnce: 1
+  showThoughtText: 0
   interactionDistance: 1
   interactionSound: {fileID: 0}
   playSoundGlobally: 0
