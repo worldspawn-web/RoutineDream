@@ -26,6 +26,18 @@ public class SimpleInteraction : MonoBehaviour
 
     void Update()
     {
+        if (InteractionBlocker.IsBlocked())
+        {
+            if (lastInteractable != null)
+            {
+                lastInteractable.SetHighlight(false);
+                lastInteractable = null;
+            }
+            currentInteractable = null;
+            Crosshair.SetRotating(false);
+            return;
+        }
+        
         CheckForInteractable();
         
         if (Input.GetKeyDown(interactKey) && currentInteractable != null)

@@ -80,6 +80,11 @@ public class InteractableObject : MonoBehaviour
     public void SetHighlight(bool enabled)
     {
         Outline outline = GetComponent<Outline>();
+        if (outline == null)
+        {
+            outline = GetComponentInChildren<Outline>();
+        }
+        
         if (outline != null)
         {
             outline.enabled = enabled;
