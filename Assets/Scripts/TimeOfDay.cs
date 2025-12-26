@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class TimeOfDay : MonoBehaviour
 {
     public enum DayTime
@@ -55,6 +56,19 @@ public class TimeOfDay : MonoBehaviour
         }
 
         SetTime(currentTime, true);
+    }
+
+    void OnValidate()
+    {
+        if (!Application.isPlaying)
+        {
+            if (directionalLight == null)
+            {
+                directionalLight = FindObjectOfType<Light>();
+            }
+            
+            SetTime(currentTime, true);
+        }
     }
 
     void Update()
