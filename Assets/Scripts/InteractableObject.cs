@@ -12,10 +12,28 @@ public class InteractableObject : MonoBehaviour
     public bool interactOnce = false;
     public float interactionDistance = 3f;
     
+    [Header("Звук взаимодействия")]
+    public AudioClip interactionSound;
+    public bool playSoundGlobally = false;
+    [Range(0f, 1f)]
+    public float soundVolume = 1f;
+    
     [Header("События")]
     public UnityEvent onInteract;
     
     private bool hasInteracted = false;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        if (interactionSound != null && !playSoundGlobally)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.playOnAwake = false;
+            audioSource.spatialBlend = 1f;
+            audioSource.volume = soundVolume;
+        }
+    }
 
     public void Interact()
     {
@@ -25,11 +43,30 @@ public class InteractableObject : MonoBehaviour
         
         UIThoughtDisplay.ShowThought(interactionText);
         
+        PlayInteractionSound();
+        
         onInteract?.Invoke();
         
         if (interactOnce)
         {
             hasInteracted = true;
+        }
+    }
+    
+    void PlayInteractionSound()
+    {
+        if (interactionSound == null) return;
+
+        if (playSoundGlobally)
+        {
+            AudioSource.PlayClipAtPoint(interactionSound, Camera.main.transform.position, soundVolume);
+        }
+        else
+        {
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(interactionSound);
+            }
         }
     }
     
